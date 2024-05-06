@@ -1,0 +1,11 @@
+<h1>Reviews#index</h1>
+<p>Find me in app/views/reviews/index.html.erb</p>
+<h1>予約内容一覧</h1>
+<% @reviews.each do |review| %>
+   <p><%= review.product.name %></p>
+   <p><%= review.content %></p>
+   <p>product_id<%= review.product_id %></p>
+   <p>user_id<%= review.user_id %></p>
+   <%= link_to "review Show", reviews_show_path %>
+   <p><%= button_to 'review削除', reviews_destroy_path(review), method: :delete, data:{ confirm: "本当に削除しますか？"} %></p>
+<% end %>

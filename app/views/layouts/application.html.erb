@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= link_to "login", new_user_session_path %>
+    <%= link_to "signup", new_user_registration_path %>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "予約内容一覧", reviews_index_path %>
+    <%= link_to "product登録一覧", root_path %>
+    <%= yield %>
+  </body>
+</html>

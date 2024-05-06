@@ -1,0 +1,23 @@
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+<p><%= @product.name %></p>
+
+<div class="row">
+  <% @reviews.each do |review| %>
+    <div class="offset-md-5 col-md-5">
+      <p class="h3"><%= review.content %></p>
+    </div>
+   <% end %>
+</div>
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="offset-md-5 col-md-5">
+      <p>予約フォーム</p>
+      <%= form_with model: @review, url: product_reviews_path(@product) do |f| %>
+        <%= f.text_area :content, class: "form-control m-2" %>
+          <%= f.submit "レビューを追加" , class:"btn samuraimart-submit-button ml-2"%>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "product", products_path %>
